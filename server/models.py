@@ -16,3 +16,11 @@ class Pet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     species = db.Column(db.String)
+
+class User(db.Model):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), unique=True, index=True, nullable=False) # unique=True, index=True
+    email = db.Column(db.String(120), unique=True)
+    verified = db.Column(db.Boolean, default=False)
